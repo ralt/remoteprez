@@ -3,7 +3,7 @@
 var http = require( 'http' ),
     server = http.createServer(),
 
-    // The list of urls is quite think
+    // The list of urls is quite thin
     urls = [
         '^/$',
         '^/prez/*',
