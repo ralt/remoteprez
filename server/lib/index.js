@@ -26,6 +26,18 @@ server.on( 'request', function( req, res ) {
 
     // If we do, success!
     if ( success ) {
+        var staticServer = require( './static.js' ),
+            isStatic = staticServer.isStatic( req.url );
+
+        // If the url is static, just serve the file
+        if ( isStatic ) {
+            staticServer.serve( req.url, req, res );
+        }
+
+        // Else, it's the socket job
+        else {
+            require( './socket.js' )();
+        }
         console.log( 'Hit ' + req.url );
         res.writeHead( 200 );
         res.end();
