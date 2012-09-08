@@ -1,17 +1,17 @@
 'use strict';
 
-var io = require( 'socket.io' );
+var io = require( 'socket.io' ),
+    uuid = require( 'node-uuid' );
 
-function Socket( url, req, res ) {
-    this.url = url;
-    this.req = req;
-    this.res = res;
+function Socket() {
+    // Initialize the connection
+    this.init();
 }
 
 Socket.prototype = {
     constructor: Socket,
 
-    listen: function() {
+    init: function() {
     }
 };
 

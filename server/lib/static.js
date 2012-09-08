@@ -12,7 +12,8 @@ var urlsMap = {
     '/favicon.ico': './static/favicon.ico',
     '/': './static/index.html',
     '/styles.css': './static/styles.css',
-    '/bundle.js': './static/bundle.js'
+    '/bundle.js': './static/bundle.js',
+    '/prez.html': './static/prez.html'
 },
     extMap = {
     'html': 'text/html',
@@ -22,10 +23,6 @@ var urlsMap = {
 },
     fs = require( 'fs' ),
     server = {};
-
-server.isStatic = function( url ) {
-    return ~Object.keys( urlsMap ).indexOf( url );
-};
 
 server.serve = function( url, req, res ) {
     // Read the file
