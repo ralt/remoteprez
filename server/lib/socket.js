@@ -1,16 +1,21 @@
 'use strict';
 
-var socket = {},
-    io = require( 'socket.io' );
+var io = require( 'socket.io' );
 
-socket.addProp = function( obj ) {
-    Object.keys( obj ).forEach(
-        function( prop ) {
-        this[ prop ] = obj[ prop ];
-    }, this );
+function Socket( url, req, res ) {
+    this.url = url;
+    this.req = req;
+    this.res = res;
+}
+
+Socket.prototype = {
+    constructor: Socket,
+
+    listen: function() {
+    }
 };
 
-socket.listen = function() {
-};
+// Static property
+Socket.clients = [];
 
-module.exports = socket;
+module.exports = Socket;

@@ -2,6 +2,7 @@
 
 var http = require( 'http' ),
     server = http.createServer(),
+    Socket = require( './socket.js' );
 
     // The list of urls is quite thin
     urls = [
@@ -37,12 +38,7 @@ server.on( 'request', function( req, res ) {
 
         // Else, it's the socket job
         else {
-            var socket = require( './socket.js' );
-            socket.addProp( {
-                url: req.url,
-                request: req,
-                response: res
-            });
+            var socket = new Socket( req.url, req, res );
             socket.listen();
         }
     }
