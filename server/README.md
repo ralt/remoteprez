@@ -1,7 +1,7 @@
 remoteprez
 ===
 
-The server part of sockprez.
+The server part of remoteprez.
 
 Usage example
 ---
