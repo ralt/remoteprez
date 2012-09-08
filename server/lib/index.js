@@ -38,9 +38,6 @@ server.on( 'request', function( req, res ) {
         else {
             require( './socket.js' )();
         }
-        console.log( 'Hit ' + req.url );
-        res.writeHead( 200 );
-        res.end();
     }
     else {
         console.log( 'Miss ' + req.url );
