@@ -34,7 +34,7 @@ server.serve = function( url, req, res ) {
         if ( err ) throw err;
 
         // Get the extension of the file
-        var ext = url.split( '.' ).reverse()[ 0 ];
+        var ext = url.split( '.' ).pop();
 
         // Set the correct headers
         res.writeHead( 200, {
