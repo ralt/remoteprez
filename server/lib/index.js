@@ -6,7 +6,8 @@ var http = require( 'http' ),
     // The list of urls is quite thin
     urls = [
         '^/$',
-        '^/prez/*',
+        '^/prez/server/*',
+        '^/prez/client/*',
         '^/favicon.ico$'
     ].map( function( url ) {
         // Only create the new regex once
@@ -36,7 +37,13 @@ server.on( 'request', function( req, res ) {
 
         // Else, it's the socket job
         else {
-            require( './socket.js' )();
+            var socket = require( './socket.js' );
+            socket.addProp( {
+                url: req.url,
+                request: req,
+                response: res
+            });
+            socket.listen();
         }
     }
     else {
