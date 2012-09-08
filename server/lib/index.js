@@ -8,12 +8,15 @@ var http = require( 'http' ),
         '^/$',
         '^/prez/*',
         '^/favicon.ico$'
-    ];
+    ].map( function( url ) {
+        // Only create the new regex once
+        return new RegExp( url );
+    });
 
 server.on( 'request', function( req, res ) {
     // Check if we have the URL
     var success = urls.some( function( url ) {
-        if ( ( new RegExp( url ) ).exec( req.url ) ) {
+        if ( url.exec( req.url ) ) {
             return true;
         }
         else {
