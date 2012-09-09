@@ -20,11 +20,16 @@ var io = require( 'socket.io' ).listen( 8080 ),
 io.sockets.on( 'connection', function( socket ) {
     // Listen to the "create channel" even sent from the extension
     socket.on( 'create channel', function( channel ) {
+        channels[ channel ] = channels[ channel ] || [];
         channels[ channel ].push( socket.id );
     });
 
     // Listen to the second client connection
     socket.on( 'join channel', function( channel ) {
+        channels[ channel ] = channels[ channel ] || [];
+        // ^ This line is for debug only in the mean time that
+        // the extension is created.
+
         channels[ channel ].push( socket.id );
     });
 
@@ -39,6 +44,22 @@ io.sockets.on( 'connection', function( socket ) {
 
         // And send the key to it
         io.sockets.socket( client ).emit( obj.key );
+    });
+
+    // Handles deletion or the array is never going to be freed up.
+    socket.on( 'disconnect', function() {
+
+        // Remove the channel in which the client just disconnected
+        Object.keys( channels ).some( function( channel ) {
+            var index = channel.indexOf( socket.id );
+            if ( ~index ) {
+                delete channels[ channel ];
+                return true;
+            }
+            else {
+                return false;
+            }
+        });
     });
 });
 
