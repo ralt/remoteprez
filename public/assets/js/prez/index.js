@@ -21,10 +21,10 @@ var socket = io.connect( 'http://remoteprez.margaine.com:8080/' );
 
 // Set an object of keyCodes for the event handler
 var keyCodes = {
-    'top': 1,
-    'right': 2,
-    'bottom': 3,
-    'left': 4
+    'top': 38,
+    'right': 39,
+    'bottom': 40,
+    'left': 37
 };
 
 socket.on( 'connect', function() {
