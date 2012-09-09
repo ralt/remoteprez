@@ -43,7 +43,7 @@ io.sockets.on( 'connection', function( socket ) {
         var client = channel[ 0 ];
 
         // And send the key to it
-        io.sockets.socket( client ).emit( obj.key );
+        io.sockets.socket( client ).emit( 'send key', obj.key );
     });
 
     // Handles deletion or the array is never going to be freed up.

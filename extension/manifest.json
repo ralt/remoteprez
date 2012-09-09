@@ -1,0 +1,17 @@
+{
+    "name": "remoteprez",
+    "version": "0.0.1",
+    "description": "Remotely control an HTML5 presentation",
+    "background_page": "background.html",
+    "permissions": [
+        "tabs", "http://*/*"
+    ],
+    "browser_action": {
+        "name": "remoteprez",
+        "default_icon": "remoteprez.png",
+        "default_title": "Run a remotely controlled presentation",
+        "icons": [ "remoteprez.png" ]
+    },
+    "content_security_policy": "default-src 'none'; script-src 'self'"
+}
+

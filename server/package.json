@@ -1,5 +1,5 @@
 {
-    "name": "remoteprez",
+    "name": "remoteprez-server",
     "description": "The server part of a remoteprez",
     "version": "0.0.1",
     "author": {
