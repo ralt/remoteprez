@@ -29,7 +29,7 @@ case 'prez':
     entry = 'public/assets/js/prez/index.js';
     output = 'public/assets/js/prez.js';
     break;
-case 'extension':
+case 'ext':
     entry = 'extension/js/index.js';
     output = 'extension/remoteprez.js';
     break;
