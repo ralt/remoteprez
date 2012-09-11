@@ -13,7 +13,8 @@ var uuid = require( 'node-uuid' );
 
 var socket = io.connect( 'http://remoteprez.margaine.com:8080/' );
 
-var channel = uuid.v4();
+var channel = uuid.v4(),
+    engine = prompt( 'Which engine is it? impress.js, reveal.js or html5slides?' );
 
 socket.on( 'connect', function() {
     // Emit an event to create the channel
@@ -23,33 +24,52 @@ socket.on( 'connect', function() {
     showLink();
 
     // Listen on the "send key" event
-    socket.on( 'send key', function( keyCode ) {
+    socket.on( 'send direction', function( engine, direction ) {
+        // Mapping object
+        var mapping = {
+            'impress.js': {
+                'top': 'impress().next()',
+                'bottom': 'impress().next()',
+                'left': 'impress().prev()',
+                'right': 'impress().prev()'
+            },
+            'reveal.js': {
+                'top': 'Reveal.navigateUp()',
+                'bottom': 'Reveal.navigateDown()',
+                'left': 'Reveal.navigateLeft()',
+                'right': 'Reveal.navigateRight()'
+            },
+            'html5slides': {
+                'top': 'nextSlide()',
+                'bottom': 'nextSlide()',
+                'left': 'prevSlide()',
+                'right': 'prevSlide()'
+            }
+        };
 
-        // Dispatch a keyboard event using the keyCode provided
-        var evt = document.createEvent( 'KeyboardEvent' );
-        evt.initKeyboardEvent(
-            'keypress',
-            true,
-            true,
-            window,
-            false,
-            false,
-            false,
-            false,
-            keyCode,
-            0
-        );
-        document.dispatchEvent( evt );
+        // Just call the right function
+        eval( window[ mapping[ engine ][ direction ] ] );
     });
 });
 
 function showLink() {
     // Create a DOM element to show
     var link = document.createElement( 'a' );
-    link.href = 'http://remoteprez.margaine.com/prez.html?c=' + channel;
+    link.href = 'http://remoteprez.margaine.com/prez.html?c=' +
+        channel + '&e=' + engine;
+    link.textContent = 'Click here to control your presentation';
+    link.target = '_blank';
+
+    // Add some style
+    link.style.background = 'white';
     link.style.position = 'absolute';
-    link.style.top = '50px';
-    link.style.left = '50px';
+    link.style.top = '10px';
+    link.style.left = '10px';
+
+    // Remove it when you click on it
+    link.addEventListener( 'click', function() {
+        this.parentNode.removeChild( this );
+    }, false );
 
     // And append it to the body
     document.body.appendChild( link );

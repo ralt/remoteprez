@@ -15,17 +15,10 @@
 // Get the channel used with a simple method.
 // I could use a fully featured solution, but use the extension
 // correctly or not, ffs.
-var channel = window.location.search.split( '=' ).pop();
+var channel = getParameterByName( 'c' ),
+    engine = getParameterByName( 'e' );
 
 var socket = io.connect( 'http://remoteprez.margaine.com:8080/' );
-
-// Set an object of keyCodes for the event handler
-var keyCodes = {
-    'top': 38,
-    'right': 39,
-    'bottom': 40,
-    'left': 37
-};
 
 socket.on( 'connect', function() {
     // Emit an event to join the channel
@@ -41,11 +34,24 @@ socket.on( 'connect', function() {
             var direction = e.target.className.split( ' ' ).sort()[ 1 ];
 
             // Send the event to the websocket
-            socket.emit( 'send key', {
+            socket.emit( 'send direction', {
                 channel: channel,
-                key: keyCodes[ direction ]
+                direction: direction,
+                engine: engine
             });
         }
     }, false );
 });
+
+function getParameterByName(name)
+{
+  name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+  var regexS = "[\\?&]" + name + "=([^&#]*)";
+  var regex = new RegExp(regexS);
+  var results = regex.exec(window.location.search);
+  if(results == null)
+    return "";
+  else
+    return decodeURIComponent(results[1].replace(/\+/g, " "));
+}
 
