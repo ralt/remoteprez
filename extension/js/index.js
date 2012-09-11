@@ -47,10 +47,22 @@ socket.on( 'connect', function() {
             }
         };
 
-        // Just call the right function
-        eval( mapping[ engine ][ direction ] );
+        // Just inject the right function
+        injectCode( mapping[ engine ][ direction ] );
     });
 });
+
+function injectCode( code ) {
+    var s = document.getElementById( 'remoteprez' );
+    if ( s ) {
+        s.parentNode.removeChild( s );
+    }
+
+    var script = document.createElement( 'script' );
+    script.textContent = code;
+    script.id = 'remoteprez';
+    document.body.appendChild( script );
+}
 
 function showLink() {
     // Create a DOM element to show
