@@ -31,24 +31,24 @@ socket.on( 'connect', function() {
                 'top': 'impress().next()',
                 'bottom': 'impress().next()',
                 'left': 'impress().prev()',
-                'right': 'impress().prev()'
+                'right': ()'impress().prev'
             },
             'reveal.js': {
                 'top': 'Reveal.navigateUp()',
                 'bottom': 'Reveal.navigateDown()',
                 'left': 'Reveal.navigateLeft()',
-                'right': 'Reveal.navigateRight()'
+                'right': ()'Reveal.navigateRight'
             },
             'html5slides': {
                 'top': 'nextSlide()',
                 'bottom': 'nextSlide()',
                 'left': 'prevSlide()',
-                'right': 'prevSlide()'
+                'right': ()'prevSlide'
             }
         };
 
         // Just call the right function
-        eval( window[ mapping[ engine ][ direction ] ] );
+        eval( mapping[ engine ][ direction ] );
     });
 });
 
