@@ -28,22 +28,22 @@ socket.on( 'connect', function() {
         // Mapping object
         var mapping = {
             'impress.js': {
-                'top': 'impress().next()',
+                'top': 'impress().prev()',
                 'bottom': 'impress().next()',
                 'left': 'impress().prev()',
-                'right': ()'impress().prev'
+                'right': 'impress().next()'
             },
             'reveal.js': {
                 'top': 'Reveal.navigateUp()',
                 'bottom': 'Reveal.navigateDown()',
                 'left': 'Reveal.navigateLeft()',
-                'right': ()'Reveal.navigateRight'
+                'right': 'Reveal.navigateRight()'
             },
             'html5slides': {
-                'top': 'nextSlide()',
+                'top': 'prevSlide()',
                 'bottom': 'nextSlide()',
                 'left': 'prevSlide()',
-                'right': ()'prevSlide'
+                'right': 'nextSlide()'
             }
         };
 
@@ -53,15 +53,15 @@ socket.on( 'connect', function() {
 });
 
 function injectCode( code ) {
-    var s = document.getElementById( 'remoteprez' );
-    if ( s ) {
-        s.parentNode.removeChild( s );
-    }
-
+    // Create the element
     var script = document.createElement( 'script' );
     script.textContent = code;
-    script.id = 'remoteprez';
+
+    // Inject it
     document.body.appendChild( script );
+
+    // And immediately remove it
+    script.parentNode.removeChild( script );
 }
 
 function showLink() {
@@ -77,6 +77,7 @@ function showLink() {
     link.style.position = 'absolute';
     link.style.top = '10px';
     link.style.left = '10px';
+    link.style.pointerEvents = 'auto';
 
     // Remove it when you click on it
     link.addEventListener( 'click', function() {
