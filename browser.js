@@ -1,5 +1,22 @@
 #!/usr/bin/env node
 
+/**
+ * Usage:
+ *
+ *   - ./browser ext &
+ *      Enables watching the extension/js/index.js file for changes
+ *      and re-browserify + uglify extension/remoteprez.js
+ *
+ *   - ./browser prez &
+ *      Enables watching the public/assets/js/prez/index.js file for
+ *      changes and re-browserify + uglify public/assets/js/remoteprez.js
+ *
+ *   - ./browser ext debug & || ./browser prez debug &
+ *      Enables watching the file but doesn't uglify the browserified
+ *      file, and enables the source mapping for debugging by adding
+ *      comments
+ */
+
 'use strict';
 
 // Browserify part
