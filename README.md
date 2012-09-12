@@ -20,6 +20,7 @@ Roadmap
 - Design the control page
 - Add a middle button
 - Add a QRCode to ease the mobile usage
+- Use the latest version of manifest.json
 
 Once this will be done, the extension will be added to the Chrome Web Store.
 
