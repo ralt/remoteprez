@@ -26,6 +26,9 @@ io.sockets.on( 'connection', function( socket ) {
 
     // Listen to the second client connection
     socket.on( 'join channel', function( channel ) {
+        // To avoid crashing the server if someone tries to
+        // connect the control first, we add this check:
+        channels[ channel ] = channels[ channel ] || [];
         channels[ channel ].push( socket.id );
     });
 
