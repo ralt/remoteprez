@@ -77,6 +77,7 @@ function showLink() {
     link.style.position = 'absolute';
     link.style.top = '10px';
     link.style.left = '10px';
+    // For impress.js, or the link won't be clickable
     link.style.pointerEvents = 'auto';
 
     // Remove it when you click on it
