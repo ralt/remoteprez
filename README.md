@@ -1,8 +1,27 @@
 sockprez
 ===
 
-A Google Chrome extension to connect to a presentation websocket
-on any website.
+Introduction
+---
+
+A Google Chrome extension to remotely control an HTML5 presentation.
+
+Currently, the following presentations are supported:
+
+- [Reveal.js][1]
+- [impress.js][2]
+- [html5slides][3]
+
+Roadmap
+---
+
+- Design the extension usage (using a `prompt()` is quite ugly)
+- Design the logo of the extension
+- Design the control page
+- Add a middle button
+- Add a QRCode to ease the mobile usage
+
+Once this will be done, the extension will be added to the Chrome Web Store.
 
 Contributors
 ---
