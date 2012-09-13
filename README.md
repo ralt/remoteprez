@@ -15,12 +15,11 @@ Currently, the following presentations are supported:
 Roadmap
 ---
 
-- Design the extension usage (using a `prompt()` is quite ugly)
+- [Guess the engine used](https://github.com/Ralt/remoteprez/issues/1)
 - Design the logo of the extension
 - Design the control page
-- Add a middle button
-- Add a QRCode to ease the mobile usage
-- Use the latest version of manifest.json
+- [Add a QRCode to ease the mobile usage](https://github.com/Ralt/remoteprez/issues/2)
+- [Use the latest version of manifest.json](https://github.com/Ralt/remoteprez/issues/3)
 
 Once this will be done, the extension will be added to the Chrome Web Store.
 
@@ -33,4 +32,8 @@ License
 ---
 
 MIT License.
+
+   [1]: http://lab.hakim.se/reveal-js
+   [2]: http://bartaz.github.com/impress.js
+   [3]: http://html5slides.googlecode.com/svn/trunk/template/index.html
 
