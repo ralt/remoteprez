@@ -27,7 +27,7 @@ socket.on( 'connect', function() {
     // Add an event listener to handle the click events
     document.body.addEventListener( 'click', function( e ) {
         // Check if we clicked on an arrow
-        if ( e.target.classList.contains( 'arrow' ) ) {
+        if ( e.target.classList.contains( 'button' ) ) {
 
             // The direction is the second class in alphabetical order,
             // the first being "arrow".
@@ -45,7 +45,8 @@ socket.on( 'connect', function() {
                     'top': 'Reveal.navigateUp()',
                     'bottom': 'Reveal.navigateDown()',
                     'left': 'Reveal.navigateLeft()',
-                    'right': 'Reveal.navigateRight()'
+                    'right': 'Reveal.navigateRight()',
+                    'middle': 'Reveal.toggleOverview()'
                 },
                 'html5slides': {
                     'top': 'prevSlide()',
