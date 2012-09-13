@@ -14,7 +14,7 @@ var uuid = require( 'node-uuid' );
 var socket = io.connect( 'http://remoteprez.margaine.com:8080/' );
 
 var channel = uuid.v4(),
-    engine = prompt( 'Which engine is it? impress.js, reveal.js or html5slides?' );
+    engine = guessEngine();
 
 socket.on( 'connect', function() {
     // Emit an event to create the channel
@@ -29,6 +29,30 @@ socket.on( 'connect', function() {
         injectCode( command );
     });
 });
+
+function guessEngine() {
+    // Ugly hack, but hey
+    injectCode( setEngine.toString() );
+
+    // There we have the engine in the dataset
+    return document.body.dataset.remoteprez;
+}
+
+function setEngine() {
+    var mapping = {
+        'reveal.js': 'Reveal.toggleOverview',
+        'impress.js': 'impress',
+        'html5slides': 'prevSlide'
+    };
+
+    Object.keys( mapping ).forEach( function( f ) {
+        // If the function exists
+        if ( typeof mapping[ f ] === 'function' ) {
+            // Add it on the body data-*
+            document.body.dataset.remoteprez = f;
+        }
+    });
+}
 
 function injectCode( code ) {
     // Create the element
