@@ -4,6 +4,8 @@ sockprez
 Introduction
 ---
 
+Demo: http://www.youtube.com/watch?v=Sa-kmN7n92o
+
 A Google Chrome extension to remotely control an HTML5 presentation.
 
 Currently, the following presentations are supported:
