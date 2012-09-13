@@ -4,8 +4,8 @@
  * Usage:
  *
  *   - ./browser ext &
- *      Enables watching the extension/js/index.js file for changes
- *      and re-browserify + uglify extension/remoteprez.js
+ *      Enables watching the extension/src/index.js file for changes
+ *      and re-browserify + uglify extension/remoteprez/remoteprez.js
  *
  *   - ./browser prez &
  *      Enables watching the public/assets/js/prez/index.js file for
@@ -47,8 +47,8 @@ case 'prez':
     output = 'public/assets/js/prez.js';
     break;
 case 'ext':
-    entry = 'extension/js/index.js';
-    output = 'extension/remoteprez.js';
+    entry = 'extension/src/index.js';
+    output = 'extension/remoteprez/remoteprez.js';
     break;
 }
 
