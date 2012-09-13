@@ -33,11 +33,32 @@ socket.on( 'connect', function() {
             // the first being "arrow".
             var direction = e.target.className.split( ' ' ).sort()[ 1 ];
 
+            // Mapping object
+            var mapping = {
+                'impress.js': {
+                    'top': 'impress().prev()',
+                    'bottom': 'impress().next()',
+                    'left': 'impress().prev()',
+                    'right': 'impress().next()'
+                },
+                'reveal.js': {
+                    'top': 'Reveal.navigateUp()',
+                    'bottom': 'Reveal.navigateDown()',
+                    'left': 'Reveal.navigateLeft()',
+                    'right': 'Reveal.navigateRight()'
+                },
+                'html5slides': {
+                    'top': 'prevSlide()',
+                    'bottom': 'nextSlide()',
+                    'left': 'prevSlide()',
+                    'right': 'nextSlide()'
+                }
+            };
+
             // Send the event to the websocket
-            socket.emit( 'send direction', {
+            socket.emit( 'send command', {
                 channel: channel,
-                direction: direction,
-                engine: engine
+                command: mapping[ engine ][ direction ]
             });
         }
     }, false );

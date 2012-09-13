@@ -23,32 +23,10 @@ socket.on( 'connect', function() {
     // And display a link to the controller link on remoteprez.margaine.com
     showLink();
 
-    // Listen on the "send key" event
-    socket.on( 'send direction', function( engine, direction ) {
-        // Mapping object
-        var mapping = {
-            'impress.js': {
-                'top': 'impress().prev()',
-                'bottom': 'impress().next()',
-                'left': 'impress().prev()',
-                'right': 'impress().next()'
-            },
-            'reveal.js': {
-                'top': 'Reveal.navigateUp()',
-                'bottom': 'Reveal.navigateDown()',
-                'left': 'Reveal.navigateLeft()',
-                'right': 'Reveal.navigateRight()'
-            },
-            'html5slides': {
-                'top': 'prevSlide()',
-                'bottom': 'nextSlide()',
-                'left': 'prevSlide()',
-                'right': 'nextSlide()'
-            }
-        };
-
-        // Just inject the right function
-        injectCode( mapping[ engine ][ direction ] );
+    // Listen on the "send command" event
+    socket.on( 'send command', function( command ) {
+        // Just inject the command
+        injectCode( command );
     });
 });
 
