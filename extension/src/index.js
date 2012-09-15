@@ -32,17 +32,28 @@ socket.on( 'connect', function() {
 
 function guessEngine() {
     // Ugly hack, but hey
-    injectCode( setEngine.toString() );
+    injectCode( setEngine.toString() + 'setEngine();' );
 
     // There we have the engine in the dataset
     return document.body.dataset.remoteprez;
 }
 
 function setEngine() {
+    // To avoid errors in the mapping object
+    // And let's not forget about hoisting :-)
+    var Reveal = window.Reveal || '',
+        impress = window.impress || '',
+        prevSlide = window.prevSlide || '';
+
+    // Reveal isn't a function, so we need this
+    if ( typeof Reveal === 'object' ) {
+        Reveal = Reveal.toggleOverview;
+    }
+
     var mapping = {
-        'reveal.js': 'Reveal.toggleOverview',
-        'impress.js': 'impress',
-        'html5slides': 'prevSlide'
+        'reveal.js': Reveal,
+        'impress.js': impress,
+        'html5slides': prevSlide
     };
 
     Object.keys( mapping ).forEach( function( f ) {

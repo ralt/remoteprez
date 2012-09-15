@@ -33,7 +33,13 @@ if ( process.argv[ 3 ] === 'debug' ) {
 }
 else {
     debug = false;
-    uglify = true;
+    // Don't uglify the extension
+    if ( process.argv[ 2 ] === 'ext' ) {
+        uglify = false;
+    }
+    else {
+        uglify = true;
+    }
 }
 
 var b = browserify( {
