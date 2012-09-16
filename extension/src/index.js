@@ -32,7 +32,7 @@ socket.on( 'connect', function() {
 
 function guessEngine() {
     // Ugly hack, but hey
-    injectCode( setEngine.toString() + 'setEngine();' );
+    injectCode( ';(' + setEngine.toString() + '());' );
 
     // There we have the engine in the dataset
     return document.body.dataset.remoteprez;
