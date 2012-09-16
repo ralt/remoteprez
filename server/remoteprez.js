@@ -34,7 +34,7 @@ io.sockets.on( 'connection', function( socket ) {
 
     // Listen to the "send command" event from the second client
     // and send it to the first client
-    socket.on( 'send command', function( obj ) {
+    socket.on( 'send direction', function( obj ) {
         // Get the channel to send it on
         var channel = channels[ obj.channel ];
 
@@ -43,7 +43,7 @@ io.sockets.on( 'connection', function( socket ) {
 
         // And send the key to it
         io.sockets.socket( client ).emit(
-            'send command', obj.command );
+            'send direction', obj.engine, obj.direction );
     });
 
     // Handles deletion or the array is never going to be freed up.
