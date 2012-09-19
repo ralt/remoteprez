@@ -1,6 +1,7 @@
 'use strict';
 
-var uuid = require( 'node-uuid' );
+var uuid = require( 'node-uuid' ),
+    qrcode = require( 'qrcode' );
 
 /**
  * This is what the code must do:
@@ -100,10 +101,21 @@ function injectCode( code ) {
 }
 
 function showLink() {
+    // Create a wrapper
+    var wrapper = document.createElement( 'div' );
+
+    // Remove it when you click on it
+    wrapper.addEventListener( 'click', function() {
+        this.parentNode.removeChild( this );
+    }, false );
+
+    // Store the url
+    var url = 'http://remoteprez.margaine.com/prez.html?c=' + channel +
+        '&e=' + engine;
+
     // Create a DOM element to show
     var link = document.createElement( 'a' );
-    link.href = 'http://remoteprez.margaine.com/prez.html?c=' +
-        channel + '&e=' + engine;
+    link.href = url;
     link.textContent = 'Click here to control your presentation';
     link.target = '_blank';
 
@@ -115,12 +127,17 @@ function showLink() {
     // For impress.js, or the link won't be clickable
     link.style.pointerEvents = 'auto';
 
-    // Remove it when you click on it
-    link.addEventListener( 'click', function() {
-        this.parentNode.removeChild( this );
-    }, false );
+    // Add it to the wrapper
+    wrapper.appendChild( link );
+
+    // Now create the QRCode
+    var qr = qrcode( 10, 'M' );
+    qr.addData( url );
+    qr.make();
+
+    wrapper.innerHTML += qr.createImgTag( 5 );
 
     // And append it to the body
-    document.body.appendChild( link );
+    document.body.appendChild( wrapper );
 }
 

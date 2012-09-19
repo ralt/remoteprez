@@ -3,6 +3,8 @@
 var io = require( 'socket.io' ).listen( 8080 ),
     channels = {};
 
+io.set( 'log level', 0 );
+
 /**
  * This is how it works:
  *   1. The extension connects to the websocket with a UUID.
