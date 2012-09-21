@@ -1,8 +1,11 @@
 {
+    "manifest_version": 2,
     "name": "remoteprez",
     "version": "0.0.1",
     "description": "Remotely control an HTML5 presentation",
-    "background_page": "background.html",
+    "background": {
+        "scripts": [ "background.js" ]
+    },
     "permissions": [
         "tabs", "http://*/*"
     ],
