@@ -176,12 +176,11 @@ function showLink() {
     qr.addData( url );
     qr.make();
 
-    wrapper.innerHTML += qr.createImgTag( 4 );
+    wrapper.innerHTML += qr.createImgTag( 3 );
 
     var img = wrapper.querySelector( 'img' );
-    img.style.margin = 'auto';
+    img.style.margin = '20px auto';
     img.style.display = 'block';
-    img.style.marginBottom = '10px';
 
     // And a close button
     var close = document.createElement( 'div' );
