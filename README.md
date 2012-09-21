@@ -13,6 +13,7 @@ Currently, the following presentations are supported:
 - [Reveal.js][1]
 - [impress.js][2]
 - [html5slides][3]
+- [csss][4]
 
 Contributors
 ---
@@ -27,4 +28,5 @@ MIT License.
    [1]: http://lab.hakim.se/reveal-js
    [2]: http://bartaz.github.com/impress.js
    [3]: http://html5slides.googlecode.com/svn/trunk/template/index.html
+   [4]: http://leaverou.github.com/csss
 
