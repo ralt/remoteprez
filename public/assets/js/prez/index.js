@@ -27,7 +27,7 @@ socket.on( 'connect', function() {
     // Add an event listener to handle the click events
     document.body.addEventListener( 'click', function( e ) {
         // Check if we clicked on an arrow
-        if ( e.target.classList.contains( 'button' ) ) {
+        if ( e.target.classList.contains( 'arrow' ) ) {
 
             // The direction is the second class in alphabetical order,
             // the first being "arrow".
@@ -43,15 +43,9 @@ socket.on( 'connect', function() {
     }, false );
 });
 
-function getParameterByName(name)
-{
-  name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-  var regexS = "[\\?&]" + name + "=([^&#]*)";
-  var regex = new RegExp(regexS);
-  var results = regex.exec(window.location.search);
-  if(results == null)
-    return "";
-  else
-    return decodeURIComponent(results[1].replace(/\+/g, " "));
+function getParameterByName(name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)')
+                    .exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
