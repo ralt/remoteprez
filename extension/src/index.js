@@ -45,6 +45,12 @@ socket.on( 'connect', function() {
                 'bottom': 'nextSlide()',
                 'left': 'prevSlide()',
                 'right': 'nextSlide()'
+            },
+            'csss': {
+                'top': 'slideshow.previous()',
+                'bottom': 'slideshow.next()',
+                'left': 'slideshow.previous()',
+                'right': 'slideshow.next()'
             }
         };
 
@@ -64,19 +70,36 @@ function guessEngine() {
 function setEngine() {
     // To avoid errors in the mapping object
     // And let's not forget about hoisting :-)
-    var Reveal = window.Reveal || '',
-        impress = window.impress || '',
-        prevSlide = window.prevSlide || '';
+    var engines = {
+        Reveal: window.Reveal || '',
+        impress: window.impress || '',
+        prevSlide: window.prevSlide || '',
+        slideshow: window.slideshow || ''
+    };
 
-    // Reveal isn't a function, so we need this
-    if ( typeof Reveal === 'object' ) {
-        Reveal = Reveal.toggleOverview;
-    }
+    // Some aren't functions so we need this check
+    var isObj = {
+        Reveal: {
+            obj: engines.Reveal,
+            method: 'toggleOverview'
+        },
+        slideshow: {
+            obj: engines.slideshow,
+            method: 'previous'
+        }
+    };
+
+    Object.keys( isObj ).forEach( function( key ) {
+        if ( typeof isObj[ key ].obj === 'object' ) {
+            engines[ key ] = window[ key ][ isObj[ key ].method ];
+        }
+    });
 
     var mapping = {
-        'reveal.js': Reveal,
-        'impress.js': impress,
-        'html5slides': prevSlide
+        'reveal.js': engines.Reveal,
+        'impress.js': engines.impress,
+        'html5slides': engines.prevSlide,
+        'csss': engines.slideshow
     };
 
     Object.keys( mapping ).forEach( function( f ) {
@@ -97,12 +120,20 @@ function injectCode( code ) {
     document.body.appendChild( script );
 
     // And immediately remove it
-    script.parentNode.removeChild( script );
+    //script.parentNode.removeChild( script );
 }
 
 function showLink() {
     // Create a wrapper
     var wrapper = document.createElement( 'div' );
+    // Add some style
+    wrapper.style.background = 'white';
+    wrapper.style.position = 'absolute';
+    wrapper.style.top = '10px';
+    wrapper.style.left = '10px';
+    wrapper.style.zIndex = 9999;
+    // For impress.js, or the wrapper won't be clickable
+    wrapper.style.pointerEvents = 'auto';
 
     // Remove it when you click on it
     wrapper.addEventListener( 'click', function() {
@@ -118,14 +149,6 @@ function showLink() {
     link.href = url;
     link.textContent = 'Click here to control your presentation';
     link.target = '_blank';
-
-    // Add some style
-    link.style.background = 'white';
-    link.style.position = 'absolute';
-    link.style.top = '10px';
-    link.style.left = '10px';
-    // For impress.js, or the link won't be clickable
-    link.style.pointerEvents = 'auto';
 
     // Add it to the wrapper
     wrapper.appendChild( link );

@@ -64,6 +64,8 @@ if ( uglify ) {
 
     exec( command );
 
+    console.log( 'First time done.' );
+
     b.on( 'bundle', function() {
         exec( command );
     });
