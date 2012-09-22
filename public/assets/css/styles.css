@@ -12,7 +12,8 @@ header, footer {
 }
 
 footer {
-    position: absolute;
+    position: absolute; /* for browsers without fixed */
+    position: fixed;
     width: 100%;
     bottom: 0px;
     padding: 10px 0px;
