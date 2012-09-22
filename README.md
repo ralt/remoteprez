@@ -4,7 +4,7 @@ remoteprez
 Introduction
 ---
 
-Demo: http://www.youtube.com/watch?v=Sa-kmN7n92o
+Demo: http://www.youtube.com/watch?v=Rl64DJ-ExoQ
 
 A Google Chrome extension to remotely control an HTML5 presentation.
 
