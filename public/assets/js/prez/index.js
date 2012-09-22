@@ -25,8 +25,10 @@ socket.on( 'connect', function() {
     socket.emit( 'join channel', channel );
 
     // Add an event listener to handle the click events
-    document.body.addEventListener( 'click', handleClick, false );
+    document.body.addEventListener( 'mousedown', handleClick, false );
     document.body.addEventListener( 'touchstart', handleClick, false );
+    document.body.addEventListener( 'mouseup', clickUp, false );
+    document.body.addEventListener( 'touchend', clickUp, false );
 
     function handleClick( e ) {
         // Check if we clicked on an arrow
@@ -42,6 +44,16 @@ socket.on( 'connect', function() {
                 direction: direction,
                 engine: engine
             });
+
+            // Add a class for the "active" state
+            e.target.classList.add( 'active' );
+        }
+    }
+
+    function clickUp( e ) {
+        if ( e.target.classList.contains( 'arrow' ) ) {
+            // Remove the "active" state
+            e.target.classList.remove( 'active' );
         }
     }
 });

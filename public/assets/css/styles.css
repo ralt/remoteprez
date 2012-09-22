@@ -15,6 +15,7 @@ footer {
     position: absolute;
     width: 100%;
     bottom: 0px;
+    padding: 10px 0px;
 }
 
 footer a {
@@ -69,7 +70,7 @@ a:hover {
     cursor: pointer;
 }
 
-.arrow:active {
+.arrow.active {
     background: #000;
 }
 
