@@ -25,7 +25,10 @@ socket.on( 'connect', function() {
     socket.emit( 'join channel', channel );
 
     // Add an event listener to handle the click events
-    document.body.addEventListener( 'click', function( e ) {
+    document.body.addEventListener( 'click', handleClick, false );
+    document.body.addEventListener( 'touchstart', handleClick, false );
+
+    function handleClick( e ) {
         // Check if we clicked on an arrow
         if ( e.target.classList.contains( 'arrow' ) ) {
 
@@ -40,7 +43,7 @@ socket.on( 'connect', function() {
                 engine: engine
             });
         }
-    }, false );
+    }
 });
 
 function getParameterByName(name) {
