@@ -69,3 +69,7 @@ a:hover {
     cursor: pointer;
 }
 
+.arrow:active {
+    background: #000;
+}
+
