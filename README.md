@@ -15,6 +15,11 @@ Currently, the following presentations are supported:
 - [html5slides][3]
 - [csss][4]
 
+Download
+---
+
+Download the official extension from the [Chrome Web Store][5].
+
 Contributors
 ---
 
@@ -29,4 +34,5 @@ MIT License.
    [2]: http://bartaz.github.com/impress.js
    [3]: http://html5slides.googlecode.com/svn/trunk/template/index.html
    [4]: http://leaverou.github.com/csss
+   [5]: https://chrome.google.com/webstore/detail/jihlhdedapddcnlfiihkgbbenejjbnak
 
