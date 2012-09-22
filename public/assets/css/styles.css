@@ -1,8 +1,70 @@
+body {
+    background: #E0ECF8;
+    margin: 0;
+    margin-bottom: 60px;
+}
+
+header, footer {
+    background: black;
+    color: #DDD;
+    padding: 10px;
+    text-align: center;
+    text-shadow: 1px 1px #666;
+}
+
+footer {
+    position: absolute;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+}
+
+footer a {
+    color: #CCC;
+}
+
 table {
     margin: auto;
     font-size: 300%;
     font-weight: bold;
-    text-shadow: 5px 5px 5px;
+    text-shadow: 1px 1px 1px;
+}
+
+article {
+    margin; auto;
+    display: block;
+    background: snow;
+    margin: 40px 20%;
+    padding: 20px 100px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px;
+}
+
+h1 {
+    text-shadow: 1px 1px #333;
+    text-align: center;
+    border-bottom: 1px solid #666;
+    padding-bottom: 10px;
+    color: #555;
+}
+
+h2 {
+    text-decoration: underline;
+    color: #333;
+}
+
+li {
+    list-style-type: circle;
+}
+
+a {
+    color: #444;
+}
+
+a:hover {
+    color: #888;
+    position: relative;
+    top: 1px;
 }
 
 .arrow {
