@@ -27,6 +27,10 @@ socket.on( 'connect', function() {
     // Add an event listener to handle the click events
     document.body.addEventListener( 'click', handleClick, false );
 
+    // Also add event listeners to simulate the css pseudo active on mobiles
+    document.body.addEventListener( 'touchstart', touchStart, false );
+    document.body.addEventListener( 'touchend', touchEnd, false );
+
     function handleClick( e ) {
         // Check if we clicked on an arrow
         if ( ~e.target.className.indexOf( 'arrow' ) ) {
@@ -41,6 +45,22 @@ socket.on( 'connect', function() {
                 direction: direction,
                 engine: engine
             });
+        }
+    }
+
+    function touchStart( e ) {
+        if ( ~e.target.className.indexOf( 'arrow' ) ) {
+            // Add the "active" class
+            e.target.className += ' active';
+        }
+    }
+
+    function touchEnd( e ) {
+        if ( ~e.target.className.indexOf( 'arrow' ) ) {
+            // Remove the "active" class
+            var classes = e.target.className.split( ' ' );
+            classes.splice( classes.indexOf( 'active' ), 1 );
+            e.target.className = classes.join( ' ' );
         }
     }
 });
