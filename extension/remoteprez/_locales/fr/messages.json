@@ -1,0 +1,20 @@
+{
+    "EXT_DESCRIPTION": {
+        "message": "Contrôllez à distance une présentation HTML5"
+    },
+    "EXT_TITLE": {
+        "message": "Lancer une présentation contrôllée à distance"
+    },
+    "PRESENTATION_NOT_SUPPORTED": {
+        "message": "Vous n'êtes pas sur une page de présentation supportée. Désolé."
+    },
+    "CLICK_HERE_CONTROL": {
+        "message": "Cliquez ici pour contrôller votre présentation"
+    },
+    "SCAN_QRCODE": {
+        "message": "ou scannez ce QRcode"
+    },
+    "CLOSE": {
+        "message": "Fermer"
+    }
+}

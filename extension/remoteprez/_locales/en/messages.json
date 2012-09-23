@@ -1,0 +1,20 @@
+{
+    "EXT_DESCRIPTION": {
+        "message": "Remotely control an HTML5 presentation"
+    },
+    "EXT_TITLE": {
+        "message": "Run a remotely controlled presentation"
+    },
+    "PRESENTATION_NOT_SUPPORTED": {
+        "message": "You're not on a supported presentation page. Sorry."
+    },
+    "CLICK_HERE_CONTROL": {
+        "message": "Click here to control your presentation"
+    },
+    "SCAN_QRCODE": {
+        "message": "or scan this QRcode"
+    },
+    "CLOSE": {
+        "message": "Close"
+    }
+}

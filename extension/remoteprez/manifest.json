@@ -1,8 +1,9 @@
 {
     "manifest_version": 2,
     "name": "remoteprez",
-    "version": "0.0.1",
-    "description": "Remotely control an HTML5 presentation",
+    "version": "1.0.0",
+    "default_locale": "en",
+    "description": "__MSG_EXT_DESCRIPTION__",
     "background": {
         "scripts": [ "background.js" ]
     },
@@ -12,7 +13,7 @@
     "browser_action": {
         "name": "remoteprez",
         "default_icon": "remoteprez.png",
-        "default_title": "Run a remotely controlled presentation",
+        "default_title": "__MSG_EXT_TITLE__",
         "icons": [ "remoteprez.png" ]
     },
     "content_security_policy": "default-src 'none'; script-src 'self'"

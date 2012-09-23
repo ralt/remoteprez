@@ -4,6 +4,8 @@ var uuid = require( 'node-uuid' ),
     engines = require( './engines.js' ),
     util = require( './util.js' );
 
+var _ = chrome.i18n.getMessage;
+
 /**
  * This is what the code must do:
  *   - Connect to the websocket.
@@ -19,7 +21,7 @@ var channel = uuid.v4(),
     engine = engines.guess();
 
 if ( !engine ) {
-    alert( "You're not on a supported presentation page. Sorry." );
+    alert( _( 'PRESENTATION_NOT_SUPPORTED' ) );
 }
 else {
     socket.on( 'connect', function() {
@@ -43,7 +45,8 @@ else {
                     'top': 'Reveal.navigateUp()',
                     'bottom': 'Reveal.navigateDown()',
                     'left': 'Reveal.navigateLeft()',
-                    'right': 'Reveal.navigateRight()'
+                    'right': 'Reveal.navigateRight()',
+                    'middle': 'Reveal.toggleOverview()'
                 },
                 'html5slides': {
                     'top': 'prevSlide()',

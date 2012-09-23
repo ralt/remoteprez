@@ -2,6 +2,8 @@
 
 var qrcode = require( 'qrcode' );
 
+var _ = chrome.i18n.getMessage;
+
 module.exports = function( channel, engine ) {
     // Create a wrapper
     var wrapper = document.createElement( 'div' );
@@ -36,7 +38,7 @@ module.exports = function( channel, engine ) {
     link.style.color = '#333';
 
     link.href = url;
-    link.textContent = 'Click here to control your presentation';
+    link.textContent = _( 'CLICK_HERE_CONTROL' );
     link.target = '_blank';
 
     // Add it to the wrapper
@@ -44,7 +46,7 @@ module.exports = function( channel, engine ) {
 
     // Add the "OR"
     var or = document.createElement( 'div' );
-    or.textContent = 'or scan this QRcode';
+    or.textContent = _( 'SCAN_QRCODE' );
     or.style.margin = '5px';
     or.style.textAlign = 'center';
 
@@ -63,7 +65,7 @@ module.exports = function( channel, engine ) {
 
     // And a close button
     var close = document.createElement( 'div' );
-    close.textContent = 'Close';
+    close.textContent = _( 'CLOSE' );
     close.style.margin = '5px';
     close.style.textAlign = 'center';
     close.style.cursor = 'pointer';
