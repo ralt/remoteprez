@@ -76,3 +76,11 @@ a:hover {
     background: #000;
 }
 
+.language-switcher {
+    float: right;
+}
+
+.language-switcher a {
+    color: #AAA;
+}
+
