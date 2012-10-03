@@ -19,10 +19,11 @@ var channel = getParameterByName( 'c' ),
     engine = getParameterByName( 'e' );
 
 var socket = io.connect( 'http://remoteprez.margaine.com:8080/' );
+
 socket.once('reconnect',function(){
- socket.once('disconnect',function(){
-  io.transports = ["htmlfile","xhr-polling","jsonp-polling"];
- });
+    socket.once('disconnect',function(){
+        io.transports = ["htmlfile","xhr-polling","jsonp-polling"];
+    });
 });
 socket.once( 'connect', function() {
     // Emit an event to join the channel
