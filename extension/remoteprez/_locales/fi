@@ -1,0 +1,20 @@
+{
+    "EXT_DESCRIPTION": {
+        "message": "Etäohjaa HTML5-esitystä"
+    },
+    "EXT_TITLE": {
+        "message": "Suorita etäohjattu esitys"
+    },
+    "PRESENTATION_NOT_SUPPORTED": {
+        "message": "Sivu, jolla olet, ei ole tuettu esityssivu. Pahoittelemme."
+    },
+    "CLICK_HERE_CONTROL": {
+        "message": "Napsauta tästä ohjataksesi esitystä"
+    },
+    "SCAN_QRCODE": {
+        "message": "tai skannaa tämä QR-koodi"
+    },
+    "CLOSE": {
+        "message": "Sulje"
+    }
+}
