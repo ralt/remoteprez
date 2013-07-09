@@ -23,19 +23,20 @@ Download the official extension from the [Chrome Web Store][6].
 
 Pre-compilation
 ---
-git clone https://github.com/Ralt/remoteprez.git
-cd remoteprez
-npm install
-cd extension
-npm install
-cd ..
-cd server
-npm install
-cd ..
+- git clone https://github.com/Ralt/remoteprez.git
+- cd remoteprez
+- npm install
+- cd extension
+- npm install
+- cd ..
+- cd server
+- npm install
+- cd ..
 
 Compilation
 ---
-./browser ext & || ./browser prez &
+- ./browser ext &
+- ./browser prez &
 
 Contributors
 ---
