@@ -59,6 +59,12 @@ else {
                     'bottom': 'slideshow.next()',
                     'left': 'slideshow.previous()',
                     'right': 'slideshow.next()'
+                },
+                'bespoke.js': {
+                    'top': 'bespoke.prev()',
+                    'bottom': 'bespoke.next()',
+                    'left': 'bespoke.prev()',
+                    'right': 'bespoke.next()'
                 }
             };
 
