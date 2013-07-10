@@ -21,7 +21,7 @@ Download
 
 Download the official extension from the [Chrome Web Store][6].
 
-Required Software
+Compilation: Required Software
 ---
 
 - node.js (http://nodejs.org)
