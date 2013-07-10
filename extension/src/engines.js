@@ -19,7 +19,8 @@ function setEngine() {
         Reveal: window.Reveal || '',
         impress: window.impress || '',
         prevSlide: window.prevSlide || '',
-        slideshow: window.slideshow || ''
+        slideshow: window.slideshow || '',
+        bespoke: window.bespoke || ''
     };
 
     // Some aren't functions so we need this check
@@ -31,6 +32,10 @@ function setEngine() {
         slideshow: {
             obj: engines.slideshow,
             method: 'previous'
+        },
+        bespoke: {
+            obj: engines.bespoke,
+            method: 'prev'
         }
     };
 
@@ -44,7 +49,8 @@ function setEngine() {
         'reveal.js': engines.Reveal,
         'impress.js': engines.impress,
         'html5slides': engines.prevSlide,
-        'csss': engines.slideshow
+        'csss': engines.slideshow,
+        'bespoke.js': engines.bespoke
     };
 
     Object.keys( mapping ).forEach( function( f ) {
