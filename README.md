@@ -21,8 +21,15 @@ Download
 
 Download the official extension from the [Chrome Web Store][6].
 
+Required Software
+---
+
+- node.js (http://nodejs.org)
+- uglify-js ('npm install uglify-js' or 'sudo npm install uglify-js')
+
 Pre-compilation
 ---
+
 - git clone https://github.com/Ralt/remoteprez.git
 - cd remoteprez
 - npm install
