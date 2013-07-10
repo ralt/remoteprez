@@ -20,7 +20,7 @@ function setEngine() {
         impress: window.impress || '',
         prevSlide: window.prevSlide || '',
         slideshow: window.slideshow || '',
-        bespoke: window.bespoke || '',
+        bespoke: window.bespoke || ''
     };
 
     // Some aren't functions so we need this check
@@ -36,7 +36,7 @@ function setEngine() {
         bespoke: {
             obj: engines.bespoke,
             method: 'prev'
-        },
+        }
     };
 
     Object.keys( isObj ).forEach( function( key ) {
@@ -50,7 +50,7 @@ function setEngine() {
         'impress.js': engines.impress,
         'html5slides': engines.prevSlide,
         'csss': engines.slideshow,
-        'bespoke.js': engines.bespoke,
+        'bespoke.js': engines.bespoke
     };
 
     Object.keys( mapping ).forEach( function( f ) {
